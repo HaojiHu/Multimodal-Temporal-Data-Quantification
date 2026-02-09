@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="haoji@cs-u-sansa.cs.umn.edu:22 password" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="haoji@cs-u-sansa.cs.umn.edu:22 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/haoji/python_proj/interaction_quantification_clean" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

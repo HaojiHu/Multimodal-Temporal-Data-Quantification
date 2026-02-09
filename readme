@@ -1,0 +1,33 @@
+All the programs can be run directly to reproduce the results in the paper.
+
+Experiment code:
+
+Time-Delayed Mutual Information Experiments:
++ tdmi_controlled_digit_ground_truth_exp.py
+
+Repeated Temporal Pattern:
+1) Seasonality:
++ Autocorrelation.py
++ Fourier_transform.py
++ seasonality_real_data.py
+
+2) Point Repeated Pattern:
++ tempurature_exp.py
+
+Continuous Feature Selection:
++ feature_selection.py
++ variants_for_ablation_study.py
+
+Discrete Covariates Identification:
++ Covariate_selection_rossmann.py
++ Covariate_selection_M5.py
+It requires a dependency on https://github.com/google-research/timesfm
+
+As Continuous Feature Selection and Discrete Covariates Identification experiments take time to run, we also saved the detailed results in the following files for quick checking:
+
+Continuous Feature Selection
++ feature_selection.txt
+
+Discrete Covariates Identification
++ M5_Cluster3.txt 
++ rossmann_Cluster3.txt
