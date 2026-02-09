@@ -12,11 +12,11 @@ import mixed
 
 
 
-observation_sample = 100
+observation_sample = 1000
 
-digit_precision = 3
+digit_precision = 2
 sample_num = 100000
-dy = 0.001
+dy = 0.01
 
 
 print("observation_sample: ", observation_sample)
