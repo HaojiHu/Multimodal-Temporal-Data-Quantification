@@ -1,3 +1,8 @@
+This is the official implementation of paper: Estimating Mutual Information between Time Series and
+Temporal Event Sequences Across Diverse Analysis Tasks. KDD 2026.
+
+If you use the code, please cite our paper. 
+
 All the programs can be run directly to reproduce the results in the paper.
 
 The implementation of the proposed measurement is in:
