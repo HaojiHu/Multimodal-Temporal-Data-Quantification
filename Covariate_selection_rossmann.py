@@ -13,6 +13,7 @@ from variants_for_ablation_study import NoMixtureNoClusteredMI, NoClusteredMI
 import pandas as pd
 from DeepAD import *
 from TimeSeriesFoundationModel import *
+from Chronos2 import *
 
 # device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -52,6 +53,16 @@ FM_mixtured_win = 0
 FM_ross_win = 0
 FM_noclustering_win = 0
 
+Chronos2_proposed_ndcg_list = []
+Chronos2_mixtured_ndcg_list = []
+Chronos2_ross_ndcg_list = []
+Chronos2_noclustering_ndcg_list = []
+
+Chronos2_proposed_win = 0
+Chronos2_mixtured_win = 0
+Chronos2_ross_win = 0
+Chronos2_noclustering_win = 0
+
 def cast_string(value):
     char_list = []
     for v in value:
@@ -86,6 +97,7 @@ def normalized_negativity(mi_list):
 
 
 for Store in range(100, 200):
+# for Store in [100]:
 
     print("*****Store: ", Store)
 
@@ -109,7 +121,7 @@ for Store in range(100, 200):
         category = category2id(category)
         num = len(get_categoryset(category))
 
-        mi = NormalizedClusteredMI(category[:historical_len], sales[:historical_len], 3)
+        mi = NormalizedClusteredMI(category[:historical_len], sales[:historical_len])
         # mi = mixture_mi.NMI(category[:historical_len], sales[:historical_len])
         print(v, ' proposed mi: ', mi)
         proposed_mi.append(mi)
@@ -171,6 +183,7 @@ for Store in range(100, 200):
     def create_lag_features(df, lag_days):
         for lag in lag_days:
             df[f"lag_{lag}"] = df["Sales"].shift(lag)
+        df = df.fillna(0)
         return df.dropna()
 
     print("head: ", df.head())
@@ -200,6 +213,7 @@ for Store in range(100, 200):
     CatBoostRegressor_forecast_res = []
     DeepAR_forecast_res = []
     FM_forecast_res = []
+    Chronos2_forecast_res = []
     Noclustering_forecast_res = []
 
     for v in variables:
@@ -312,12 +326,27 @@ for Store in range(100, 200):
 
         FM_forecast_res.append(1 / mae)
 
+        pipeline = Chronos2Pipeline.from_pretrained("amazon/chronos-2", device_map="cuda:1")
+
+        y_pred = Chronos2_forecasting(pipeline, sales, df_sub[v].tolist(), "Sales", len(df_sub), train_end)
+
+        mae = mean_absolute_error(y_test, y_pred)
+        mse = mean_squared_error(y_test, y_pred)
+
+        Chronos2_forecast_res.append(1 / mae)
+
+        print("\n")
+        print("Chronos2 MAE =", mae)
+        print("Chronos2 MSE =", mse)
+
+
     mixed_ksg = normalized_negativity(mixed_ksg)
     ross_res = normalized_negativity(ross_res)
 
     CatBoostRegressor_forecast_res = np.array([CatBoostRegressor_forecast_res])
     DeepAR_forecast_res = np.array([DeepAR_forecast_res])
     FM_forecast_res = np.array([FM_forecast_res])
+    Chronos2_forecast_res = np.array([Chronos2_forecast_res])
     proposed_mi = np.array([proposed_mi])
     mixed_ksg = np.array([mixed_ksg])
     ross_res = np.array([ross_res])
@@ -398,6 +427,34 @@ for Store in range(100, 200):
     elif FM_max_ndcg == FM_noclustering_ndcg:
         FM_noclustering_win += 1
 
+
+    Chronos2_proposed_ndcg = ndcg_score(proposed_mi, Chronos2_forecast_res)
+    Chronos2_mixtured_ndcg = ndcg_score(mixed_ksg, Chronos2_forecast_res)
+    Chronos2_ross_ndcg = ndcg_score(ross_res, Chronos2_forecast_res)
+    Chronos2_noclustering_ndcg = ndcg_score(noclustering_res, Chronos2_forecast_res)
+
+    print("Chronos2 Proposed NDCG =", Chronos2_proposed_ndcg)
+    print("Chronos2 Mixtured NDCG =", Chronos2_mixtured_ndcg)
+    print("Chronos2 Ross method NDCG =", Chronos2_ross_ndcg)
+    print("Chronos2 noclustering NDCG =", Chronos2_noclustering_ndcg)
+
+    Chronos2_proposed_ndcg_list.append(Chronos2_proposed_ndcg)
+    Chronos2_mixtured_ndcg_list.append(Chronos2_mixtured_ndcg)
+    Chronos2_ross_ndcg_list.append(Chronos2_ross_ndcg)
+    Chronos2_noclustering_ndcg_list.append(Chronos2_noclustering_ndcg)
+
+    Chronos2_max_ndcg = max(Chronos2_proposed_ndcg, Chronos2_mixtured_ndcg,
+                                     Chronos2_ross_ndcg, Chronos2_noclustering_ndcg)
+    if Chronos2_max_ndcg == Chronos2_proposed_ndcg:
+        Chronos2_proposed_win += 1
+    elif Chronos2_max_ndcg == Chronos2_mixtured_ndcg:
+        Chronos2_mixtured_win += 1
+    elif Chronos2_max_ndcg == Chronos2_ross_ndcg:
+        Chronos2_ross_win += 1
+    elif Chronos2_max_ndcg == Chronos2_noclustering_ndcg:
+        Chronos2_noclustering_win += 1
+
+
 print("-------------CatBoostRegressor Results-------------")
 
 print("Mean NDCG of proposed method: ", np.mean(CatBoostRegressor_proposed_ndcg_list))
@@ -433,3 +490,15 @@ print("Proposed method wins: ", FM_proposed_win)
 print("Mixture method wins: ", FM_mixtured_win)
 print("Ross method wins: ", FM_ross_win)
 print("No clustering wins: ", FM_noclustering_win)
+
+print("-------------Chronos2 Results-------------")
+
+print("Mean NDCG of proposed method: ", np.mean(Chronos2_proposed_ndcg_list))
+print("Mean NDCG of mixture method: ", np.mean(Chronos2_mixtured_ndcg_list))
+print("Mean NDCG of ross method: ", np.mean(Chronos2_ross_ndcg_list))
+print("Mean NDCG of noclustering method: ", np.mean(Chronos2_noclustering_ndcg_list))
+
+print("Proposed method wins: ", Chronos2_proposed_win)
+print("Mixture method wins: ", Chronos2_mixtured_win)
+print("Ross method wins: ", Chronos2_ross_win)
+print("No clustering wins: ", Chronos2_noclustering_win)

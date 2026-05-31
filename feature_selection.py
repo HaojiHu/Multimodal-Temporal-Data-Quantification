@@ -122,7 +122,7 @@ for file in files:
             continue
         feature = np.array(list(map(float, dfs[col].tolist())))
         # mi = NMI(category, feature)
-        mi = NormalizedClusteredMI(category, feature, int(len(set(category))/3))
+        mi = NormalizedClusteredMI(category, feature)
         mi_ross = mutual_info_classif(np.expand_dims(feature, axis=1), category, n_neighbors=3)
         mi_noclustering = NoClusteredMI(category, feature)
 
@@ -486,6 +486,8 @@ print(tie_data_svm_noclustering)
 print('Tie over NoClustering in logistic regression: ', len(tie_data_lr_noclustering), ' out of ', len(files))
 print(tie_data_lr_noclustering)
 
+
+print('proposed vs ross: ')
 print('win cases: ', rf_ross + svm_ross + lr_ross)
 print('tie cases: ', Tie_rf_ross + Tie_svm_ross + Tie_lr_ross)
 print('total cases: ', total*3)
@@ -493,7 +495,7 @@ print('win percentage: ', (rf_ross + svm_ross + lr_ross)/(total*3)) # 0.5333
 print('tie percentage: ', (Tie_rf_ross + Tie_svm_ross + Tie_lr_ross)/(total*3)) # 0.1583
 print('lose percentage: ', 1 - (rf_ross + svm_ross + lr_ross)/(total*3) - (Tie_rf_ross + Tie_svm_ross + Tie_lr_ross)/(total*3))
 
-
+print('proposed vs mixture: ')
 print('win cases: ', rf_mixture + svm_mixture + lr_mixture)
 print('tie cases: ', Tie_rf_mixture + Tie_svm_mixture + Tie_lr_mixture)
 print('total cases: ', total*3)
@@ -501,6 +503,7 @@ print('win percentage: ', (rf_mixture + svm_mixture + lr_mixture)/(total*3)) # 0
 print('tie percentage: ', (Tie_rf_mixture + Tie_svm_mixture + Tie_lr_mixture)/(total*3)) # 0.1583
 print('lose percentage: ', 1 - (rf_mixture + svm_mixture + lr_mixture)/(total*3) - (Tie_rf_mixture + Tie_svm_mixture + Tie_lr_mixture)/(total*3))
 
+print('proposed vs noclustering: ')
 print('win cases: ', rf_noclustering + svm_noclustering + lr_noclustering)
 print('tie cases: ', Tie_rf_noclustering + Tie_svm_noclustering + Tie_lr_noclustering)
 print('total cases: ', total*3)

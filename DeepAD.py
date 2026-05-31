@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 
-device =   torch.device("cuda:2" if torch.cuda.is_available() else "cpu")
+device =   torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
 
 class DeepARDataset(Dataset):
     def __init__(self, y, cat_id, dynamic_feat, context_len=30, pred_len=1):

@@ -1,0 +1,209 @@
+nohup: ignoring input
+/home/haoji/.pyenv/versions/3.11.10/lib/python3.11/site-packages/sklearn/utils/optimize.py:319: ConvergenceWarning: newton-cg failed to converge at loss = 0.17022451542311542. Increase the number of iterations.
+  warnings.warn(
+/home/haoji/.pyenv/versions/3.11.10/lib/python3.11/site-packages/sklearn/utils/optimize.py:319: ConvergenceWarning: newton-cg failed to converge at loss = 0.2894869147273925. Increase the number of iterations.
+  warnings.warn(
+/home/haoji/.pyenv/versions/3.11.10/lib/python3.11/site-packages/sklearn/utils/optimize.py:319: ConvergenceWarning: newton-cg failed to converge at loss = 0.19025665407454492. Increase the number of iterations.
+  warnings.warn(
+/home/haoji/.pyenv/versions/3.11.10/lib/python3.11/site-packages/scipy/optimize/_linesearch.py:312: LineSearchWarning: The line search algorithm did not converge
+  alpha_star, phi_star, old_fval, derphi_star = scalar_search_wolfe2(
+/home/haoji/.pyenv/versions/3.11.10/lib/python3.11/site-packages/sklearn/utils/optimize.py:100: LineSearchWarning: The line search algorithm did not converge
+  ret = line_search_wolfe2(
+---------------------------------
+COIL20.mat
+#instance:  1440 #feature:  1024  #class 20
+1440   1024   20
+[361,590,487]  vs  [457,424,425]
+feature number:  [20, 40, 60, 80, 100]
+RF Ross:  0.934  0.9479  0.9722  0.9861  0.9792  
+RF Mixture:  0.9306  0.9618  0.9722  0.9792  0.9757  
+RF NoClu.:  0.941  0.9757  0.9896  0.9931  0.9896  
+RF proposed:  0.9757  0.9931  0.9965  1.0  0.9965  
+SVM Ross:  0.75  0.8438  0.9062  0.9132  0.934  
+SVM Mixture:  0.7326  0.875  0.8958  0.9167  0.9306  
+SVM NoClu:  0.8368  0.9306  0.9549  0.9549  0.9722  
+SVM proposed:  0.8576  0.9479  0.9792  0.9826  0.9826  
+LR Ross:  0.6354  0.7812  0.8229  0.8472  0.8958  
+LR Mixture:  0.6562  0.7847  0.8194  0.8368  0.8889  
+LR NoClu:  0.7465  0.8403  0.8889  0.8993  0.9062  
+LR proposed:  0.7326  0.8993  0.934  0.9444  0.9514  
+---------------------------------
+ORL.mat
+#instance:  400 #feature:  1024  #class 40
+400   1024   40
+[321,985,352]  vs  [352,416,384]
+feature number:  [20, 40, 60, 80, 100]
+RF Ross:  0.675  0.7  0.775  0.8375  0.875  
+RF Mixture:  0.575  0.7  0.775  0.8125  0.8375  
+RF NoClu.:  0.75  0.8125  0.85  0.9  0.9  
+RF proposed:  0.85  0.875  0.9  0.8625  0.875  
+SVM Ross:  0.6625  0.7375  0.8125  0.9  0.9  
+SVM Mixture:  0.6375  0.8125  0.875  0.8375  0.85  
+SVM NoClu:  0.7  0.85  0.8375  0.9  0.9125  
+SVM proposed:  0.7  0.875  0.9125  0.925  0.925  
+LR Ross:  0.475  0.6125  0.7625  0.775  0.7875  
+LR Mixture:  0.4875  0.6875  0.75  0.7625  0.825  
+LR NoClu:  0.625  0.7375  0.8  0.8125  0.8375  
+LR proposed:  0.6375  0.8  0.8375  0.85  0.8625  
+---------------------------------
+Yale.mat
+#instance:  165 #feature:  1024  #class 15
+165   1024   15
+[825,803,732]  vs  [224,896,192]
+feature number:  [20, 40, 60, 80, 100]
+RF Ross:  0.6364  0.697  0.7879  0.697  0.7576  
+RF Mixture:  0.4242  0.6667  0.7576  0.6667  0.697  
+RF NoClu.:  0.5152  0.6667  0.6364  0.697  0.7879  
+RF proposed:  0.5758  0.6364  0.697  0.6667  0.697  
+SVM Ross:  0.4848  0.5758  0.6667  0.6364  0.6061  
+SVM Mixture:  0.4848  0.5758  0.6061  0.5758  0.5758  
+SVM NoClu:  0.4848  0.6667  0.6364  0.5758  0.6061  
+SVM proposed:  0.4848  0.4545  0.4848  0.5758  0.5152  
+LR Ross:  0.5455  0.6061  0.6667  0.6667  0.6667  
+LR Mixture:  0.5152  0.5455  0.6364  0.6364  0.6061  
+LR NoClu:  0.4242  0.697  0.6061  0.6061  0.6364  
+LR proposed:  0.303  0.5455  0.5455  0.6667  0.6667  
+---------------------------------
+warpPIE10P.mat
+#instance:  210 #feature:  2420  #class 10
+210   2420   10
+[2363,2249,2248]  vs  [2419,2418,2199]
+feature number:  [20, 40, 60, 80, 100]
+RF Ross:  0.9048  1.0  1.0  1.0  1.0  
+RF Mixture:  0.9286  1.0  1.0  1.0  1.0  
+RF NoClu.:  0.9286  1.0  1.0  1.0  1.0  
+RF proposed:  0.9048  0.9286  0.9762  0.9762  0.9762  
+SVM Ross:  0.9286  0.9762  0.9762  0.9762  1.0  
+SVM Mixture:  0.9762  1.0  1.0  1.0  1.0  
+SVM NoClu:  0.9762  1.0  1.0  1.0  1.0  
+SVM proposed:  0.9524  0.9762  0.9762  1.0  1.0  
+LR Ross:  1.0  1.0  1.0  0.9524  0.9762  
+LR Mixture:  1.0  1.0  1.0  1.0  1.0  
+LR NoClu:  0.9762  1.0  1.0  1.0  1.0  
+LR proposed:  0.9286  0.9762  1.0  1.0  1.0  
+---------------------------------
+Isolet.mat
+#instance:  1560 #feature:  617  #class 26
+1560   617   26
+[395,9,72]  vs  [73,461,105]
+feature number:  [20, 40, 60, 80, 100]
+RF Ross:  0.6218  0.734  0.7821  0.8013  0.7981  
+RF Mixture:  0.6827  0.7404  0.7917  0.8301  0.8173  
+RF NoClu.:  0.4199  0.5096  0.5897  0.7276  0.7821  
+RF proposed:  0.6763  0.7532  0.7853  0.8526  0.8782  
+SVM Ross:  0.6154  0.7147  0.7788  0.8205  0.8173  
+SVM Mixture:  0.6538  0.7468  0.8013  0.8333  0.8269  
+SVM NoClu:  0.4615  0.4904  0.5641  0.734  0.8269  
+SVM proposed:  0.6763  0.734  0.7917  0.8333  0.8878  
+LR Ross:  0.5962  0.7244  0.7692  0.8109  0.8237  
+LR Mixture:  0.641  0.7628  0.7949  0.8365  0.8558  
+LR NoClu:  0.4231  0.4872  0.5321  0.7372  0.8301  
+LR proposed:  0.6827  0.7468  0.7981  0.8462  0.9006  
+---------------------------------
+TOX_171.mat
+#instance:  171 #feature:  5748  #class 4
+171   5748   4
+[3873,5557,3535]  vs  [1083,1365,3783]
+feature number:  [20, 40, 60, 80, 100]
+RF Ross:  0.6857  0.8286  0.8571  0.8857  0.6857  
+RF Mixture:  0.3714  0.4  0.4857  0.4857  0.5714  
+RF NoClu.:  0.7429  0.7429  0.7714  0.8  0.7714  
+RF proposed:  0.7714  0.7143  0.7714  0.7714  0.8  
+SVM Ross:  0.6  0.7143  0.7143  0.6857  0.7143  
+SVM Mixture:  0.4286  0.4  0.6  0.5429  0.6286  
+SVM NoClu:  0.7714  0.7143  0.8571  0.8  0.8  
+SVM proposed:  0.6857  0.8571  0.8857  0.7429  0.7429  
+LR Ross:  0.7143  0.7429  0.7429  0.8286  0.8  
+LR Mixture:  0.4857  0.4571  0.6571  0.6571  0.6571  
+LR NoClu:  0.7429  0.7429  0.8571  0.7714  0.8571  
+LR proposed:  0.7714  0.8857  0.8571  0.7714  0.8  
+---------------------------------
+USPS.mat
+#instance:  9298 #feature:  256  #class 10
+9298   256   10
+[195,162,179]  vs  [195,178,211]
+feature number:  [20, 40, 60, 80, 100]
+RF Ross:  0.7065  0.7844  0.8199  0.9075  0.9183  
+RF Mixture:  0.7145  0.7871  0.872  0.8989  0.9226  
+RF NoClu.:  0.728  0.7995  0.8796  0.8995  0.9075  
+RF proposed:  0.7785  0.8559  0.9005  0.9086  0.9247  
+SVM Ross:  0.5565  0.6382  0.743  0.8957  0.9118  
+SVM Mixture:  0.5548  0.6414  0.8199  0.871  0.9108  
+SVM NoClu:  0.5715  0.6387  0.7806  0.8188  0.8538  
+SVM proposed:  0.6349  0.8177  0.8699  0.9005  0.9188  
+LR Ross:  0.5215  0.6156  0.7151  0.886  0.9038  
+LR Mixture:  0.5339  0.6156  0.7941  0.8554  0.9  
+LR NoClu:  0.5441  0.6199  0.7527  0.7898  0.8124  
+LR proposed:  0.6177  0.8054  0.8586  0.8898  0.9161  
+---------------------------------
+CLL_SUB_111.mat
+#instance:  111 #feature:  11340  #class 3
+111   11340   3
+[700,684,10612]  vs  [5261,9153,10641]
+feature number:  [20, 40, 60, 80, 100]
+RF Ross:  0.6522  0.6522  0.6522  0.5652  0.6087  
+RF Mixture:  0.4783  0.4348  0.3478  0.3478  0.4348  
+RF NoClu.:  0.6522  0.7391  0.6957  0.6522  0.7391  
+RF proposed:  0.6522  0.6957  0.6957  0.6522  0.6522  
+SVM Ross:  0.5652  0.6522  0.6087  0.6087  0.6957  
+SVM Mixture:  0.4348  0.3478  0.2609  0.3478  0.5217  
+SVM NoClu:  0.6087  0.6522  0.6087  0.6087  0.6522  
+SVM proposed:  0.4783  0.6957  0.7391  0.6087  0.7391  
+LR Ross:  0.6522  0.5652  0.4783  0.6087  0.6087  
+LR Mixture:  0.4783  0.3913  0.1739  0.3478  0.4783  
+LR NoClu:  0.6957  0.6957  0.5217  0.5652  0.6087  
+LR proposed:  0.5652  0.6957  0.6957  0.6087  0.6522  
+Win over Ross in random forest:  5  out of  8
+['COIL20.mat', 'ORL.mat', 'Isolet.mat', 'USPS.mat', 'CLL_SUB_111.mat']
+Win over Ross in SVM:  7  out of  8
+['COIL20.mat', 'ORL.mat', 'warpPIE10P.mat', 'Isolet.mat', 'TOX_171.mat', 'USPS.mat', 'CLL_SUB_111.mat']
+Win over Ross in logistic regression:  7  out of  8
+['COIL20.mat', 'ORL.mat', 'warpPIE10P.mat', 'Isolet.mat', 'TOX_171.mat', 'USPS.mat', 'CLL_SUB_111.mat']
+Tie over Ross in random forest:  0  out of  8
+[]
+Tie over Ross in SVM:  0  out of  8
+[]
+Tie over Ross in logistic regression:  0  out of  8
+[]
+Win over Mixture in random forest:  7  out of  8
+['COIL20.mat', 'ORL.mat', 'Yale.mat', 'Isolet.mat', 'TOX_171.mat', 'USPS.mat', 'CLL_SUB_111.mat']
+Win over Mixture in SVM:  6  out of  8
+['COIL20.mat', 'ORL.mat', 'Isolet.mat', 'TOX_171.mat', 'USPS.mat', 'CLL_SUB_111.mat']
+Win over Mixture in logistic regression:  8  out of  8
+['COIL20.mat', 'ORL.mat', 'Yale.mat', 'warpPIE10P.mat', 'Isolet.mat', 'TOX_171.mat', 'USPS.mat', 'CLL_SUB_111.mat']
+Tie over Mixture in random forest:  0  out of  8
+[]
+Tie over Mixture in SVM:  0  out of  8
+[]
+Tie over Mixture in logistic regression:  1  out of  8
+['warpPIE10P.mat']
+Win over NoClustering in random forest:  6  out of  8
+['COIL20.mat', 'ORL.mat', 'Isolet.mat', 'TOX_171.mat', 'USPS.mat', 'CLL_SUB_111.mat']
+Win over NoClustering in SVM:  5  out of  8
+['COIL20.mat', 'ORL.mat', 'Isolet.mat', 'USPS.mat', 'CLL_SUB_111.mat']
+Win over NoClustering in logistic regression:  7  out of  8
+['COIL20.mat', 'ORL.mat', 'warpPIE10P.mat', 'Isolet.mat', 'TOX_171.mat', 'USPS.mat', 'CLL_SUB_111.mat']
+Tie over NoClustering in random forest:  1  out of  8
+['CLL_SUB_111.mat']
+Tie over NoClustering in SVM:  1  out of  8
+['CLL_SUB_111.mat']
+Tie over NoClustering in logistic regression:  1  out of  8
+['warpPIE10P.mat']
+win cases:  83
+tie cases:  13
+total cases:  120
+win percentage:  0.6916666666666667
+tie percentage:  0.10833333333333334
+lose percentage:  0.2
+win cases:  87
+tie cases:  11
+total cases:  120
+win percentage:  0.725
+tie percentage:  0.09166666666666666
+lose percentage:  0.18333333333333335
+win cases:  72
+tie cases:  16
+total cases:  120
+win percentage:  0.6
+tie percentage:  0.13333333333333333
+lose percentage:  0.2666666666666667
