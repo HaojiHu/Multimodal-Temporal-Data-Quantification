@@ -24,7 +24,7 @@ def merge2groups(groups, labels):
 
     return new_groups
 
-def NormalizedClusteredMI(discs, conts, percentile=50):
+def NormalizedClusteredMI(discs, conts, percentile=90):
     groups = {}
 
     event_size = len(set(discs))
