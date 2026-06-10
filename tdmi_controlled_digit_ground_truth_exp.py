@@ -284,7 +284,7 @@ gaussians = [
 x = np.linspace(-1.5, 1.5, 1000)
 
 for idx, (mean, var) in enumerate(gaussians):
-    std = np.sqrt(var)
+    std = var
     y = (1 / (std * np.sqrt(2 * np.pi))) * np.exp(-0.5 * ((x - mean) / std) ** 2)
     plt.plot(x, y, label=f"Caused by event {idx}")
 
